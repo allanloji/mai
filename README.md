@@ -17,7 +17,7 @@ Review of the support desk's #4471 using the supplied KB export of 2026-10-04.
 - [Replacement decision 0002](support-kb/src/routes/kb/decisions/0002-dedupe-by-cause/+page.svx); accepted decision 0001 is unchanged.
 - [Computed evidence](evidence/analysis.json) and complete [parser](evidence/parser-report-ids.txt) / [hint](evidence/hint-report-ids.txt) ID manifests.
 
-Signature: `Allan Loji / Codex / S01E03`. The original RenderStamp component derives the desk reference from that signature.
+Authored by Allan Loji and Codex. The signature is the course-issued ticket in page frontmatter. The original RenderStamp component derives the desk reference from it.
 
 ## Reproduce
 

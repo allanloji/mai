@@ -4,7 +4,7 @@ title: '#4471 reviewed: two causes hidden by one ticket'
 owner: Allan Loji and Codex
 status: resolved
 reviewed: '2026-11-04'
-signature: Allan Loji / Codex / S01E03
+signature: v1.eyJzdWIiOiI0ODE2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM4NDQ2NTMsImV4cCI6MTc5MzkzMTA1M30.zNL4Seh1JwoCgK4woav-6eomNSfBARbBnuSE3KIWuvU
 ---
 
 <script>
