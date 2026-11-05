@@ -12,7 +12,7 @@ Review of the support desk's #4471 using the supplied KB export of 2026-10-04.
 - [Signed review source](support-kb/src/routes/kb/incidents/4471-review/+page.svx)
 - [Rendered review HTML](rendered/kb/incidents/4471-review/index.html) — download/open locally; GitHub's source viewer displays HTML as code.
 - [Screenshot of the rendered review](evidence/kb-review.png)
-- [Parser issue draft](issues/parser.md) and [form-hint issue draft](issues/hint.md)
+- [Parser issue #1](https://github.com/allanloji/mai/issues/1) and [form-hint issue #2](https://github.com/allanloji/mai/issues/2); local bodies in `issues/`
 - [Revised triage procedure](support-kb/src/routes/kb/triage/dedupe/+page.svx)
 - [Replacement decision 0002](support-kb/src/routes/kb/decisions/0002-dedupe-by-cause/+page.svx); accepted decision 0001 is unchanged.
 - [Computed evidence](evidence/analysis.json) and complete [parser](evidence/parser-report-ids.txt) / [hint](evidence/hint-report-ids.txt) ID manifests.

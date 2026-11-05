@@ -36,7 +36,7 @@ Classification comes from `causes.ts` with the tenant directory loaded by `local
 
 **Form hint:** booking-v3 prints `MM/DD/YYYY` while the form reads dates according to the day-first tenant locale. People follow the hint and still get the wrong date. This concerns form submissions for Alder Physio, Copper Studio, and Pale Harbour. R-41241 records 6 August appearing as 8 June. Align the displayed hint, entered value, validation, and form parsing. App and email reports for those same tenants still belong to the parser path.
 
-The [repository issues](https://github.com/allanloji/mai/issues) contain the separate counts, examples, expected behavior, and completion checks. Complete report-ID manifests and reproducible calculations are in `evidence/` and `scripts/analyze.mjs`.
+The [parser ticket](https://github.com/allanloji/mai/issues/1) and [form-hint ticket](https://github.com/allanloji/mai/issues/2) contain separate counts, examples, expected behavior, and completion checks. Complete report-ID manifests and reproducible calculations are in `evidence/` and `scripts/analyze.mjs`.
 
 ## When it happened
 
