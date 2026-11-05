@@ -1,10 +1,10 @@
-# Booking-v3 displays MM/DD/YYYY for day-first tenants — 33 reports
+# Booking-v3 date format hint contradicts day-first input — 33 reports
 
 ## Problem and count
 
-33 unique reports from desk ticket #4471 belong to the form-hint cause across three tenants, received 2026-04-17 through 2026-09-22. Counted from the 2026-10-04 KB export, deduplicated by report ID, filtered to mergedInto=4471, and classified with causes.ts using tenant settings and channel. Of these, 15 were tagged parser and 18 hint; the intake tag is only a guess.
+33 unique reports from desk ticket #4471 belong to the form-hint cause across three tenants, received 2026-04-17 through 2026-09-22. Counted from the 2026-10-04 KB export, deduplicated by report ID, filtered to mergedInto=4471, and classified with causes.ts using tenant settings and channel. The intake tag is only a guess; classification uses the tenant locale and form version.
 
-Affected form submissions are for alder.physio (de-DE), copper.studio (es-ES), and pale.harbour (pt-PT), all on booking-v3. The hint prints MM/DD/YYYY but the form interprets entered dates according to the day-first tenant locale. This is distinct from the shared parser issue. App/email reports for these same tenants go to the parser group.
+Affected form submissions are for alder.physio (de-DE), copper.studio (es-ES), and pale.harbour (pt-PT), all on booking-v3. The hint prints MM/DD/YYYY but the form interprets entered dates according to the day-first tenant locale. Only form submissions through booking-v3 belong to this issue; app/email submissions are outside its scope.
 
 ## Evidence and reproduction target
 
@@ -15,8 +15,8 @@ R-41241 (alder.physio, form) describes 6 August appearing as 8 June. Reproductio
 - Make the displayed hint, input format, validation and parsing agree with the tenant's date convention.
 - Check all three affected locales and protect booking-v2 behavior and month-first tenants.
 - Cover ambiguous numeric dates as well as days above 12, and verify the final booked date and invite.
-- Route new reports by verified cause, not subject line. Monitor this issue separately from the shared parser fix.
+- Route new reports by verified cause, not subject line. Monitor this issue independently after the hint fix.
 
-None of the five desk-noted timing exceptions is in this group. Full coverage is 379 parser + 33 hint = 412 unique reports; the export's 427 rows include 15 repeated IDs.
+The signed KB review reconciles the full export across separate tickets. This ticket covers only the 33 form-hint reports listed in its manifest.
 
 Evidence: [full report-ID manifest](https://github.com/allanloji/mai/blob/main/evidence/hint-report-ids.txt), [computed analysis](https://github.com/allanloji/mai/blob/main/evidence/analysis.json). Run `pnpm evidence` at repository root. Signed review: `support-kb/src/routes/kb/incidents/4471-review/+page.svx`; rendered page: `rendered/kb/incidents/4471-review/index.html`.
