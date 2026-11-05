@@ -36,6 +36,10 @@ Open `http://127.0.0.1:4173/kb/incidents/4471-review`. The Svelte app preserves 
 
 ## Evidence limits
 
-This is a course simulation. The original export, tenant settings and classification functions are preserved. The old incident prose is marked superseded; current instructions lead to the review and decision 0002. The export does not include production application code or a live ticket feed. Reproduction steps are specifications inferred from the evidence, not claims of testing production. No shipped fix is asserted. New intake and the five exceptions still need follow-up.
+This is a course simulation. The original export, tenant settings and classification functions are preserved. The old incident prose is marked superseded; current instructions lead to the review and decision 0002. The export does not include production application code or a live ticket feed. Reproduction steps are specifications inferred from the evidence, not claims of testing production. The later course engineering update closes #4471 on 2026-10-05: parser fixed; hint not planned because booking-v3 was retired. That update supplies the closure evidence; no independent production test is asserted. The five exceptions remain documented uncertainty in the export.
 
 Validated: build; report-ID coverage; source/export integrity; static links; browser-rendered counts and stamp; interactive transition between same-cause and different-cause verdicts.
+
+## Engineering disposition
+
+The [course desk update](https://hq.mega.dev/challenges/what-it-shows) says #4471 closed on 2026-10-05: parser fixed (`fix(dates): parse dd/mm for eu locales`), hint won't fix (`booking-v3 form retired`). Issue #1 is completed; issue #2 is not planned. See [recorded update](evidence/engineering-update.json).

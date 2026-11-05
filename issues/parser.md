@@ -22,3 +22,7 @@ Five desk-noted exceptions remain included in the 379: R-41202, R-41209, R-41236
 - Keep the booking-v3 hint fix separate; verify fresh reports after rollout.
 
 Evidence: [full report-ID manifest](https://github.com/allanloji/mai/blob/main/evidence/parser-report-ids.txt), [computed analysis](https://github.com/allanloji/mai/blob/main/evidence/analysis.json). Run `pnpm evidence` at repository root. Signed review: `support-kb/src/routes/kb/incidents/4471-review/+page.svx`; rendered page: `rendered/kb/incidents/4471-review/index.html`.
+
+## Engineering disposition
+
+The course engineering update reports #4471 closed on 2026-10-05 and this problem fixed: `fix(dates): parse dd/mm for eu locales`. Closed as completed on that evidence. This supersedes the earlier administrative closure rationale; we did not independently test production. Source: [course desk update](https://hq.mega.dev/challenges/what-it-shows).

@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 reviewed: two causes hidden by one ticket'
 owner: Allan Loji and Codex
-status: reviewed
+status: resolved
 reviewed: '2026-11-04'
 signature: Allan Loji / Codex / S01E03
 ---
@@ -21,6 +21,15 @@ The desk's “known, one issue” description conceals two different failures. T
 <Callout kind="warn">
 Keep the parser and form-hint problems in separate engineering tickets. Fixing the shared parser does not correct the form's misleading instruction.
 </Callout>
+
+## Engineering update — 5 October 2026
+
+The [course desk update](https://hq.mega.dev/challenges/what-it-shows), checked on 4 November, says #4471 closed on 5 October:
+
+- **Parser: fixed.** Engineering reports `fix(dates): parse dd/mm for eu locales`. [Ticket #1](https://github.com/allanloji/mai/issues/1) is closed as completed.
+- **Form hint: won't fix.** The booking-v3 form was retired. [Ticket #2](https://github.com/allanloji/mai/issues/2) is closed as not planned, not as a shipped hint fix.
+
+This update supplies the disposition missing from the 4 October export. Report counts and charts below describe that earlier snapshot. We have not tested the reported engineering fix; the update is the evidence for closure. The five unusual reports remain recorded as uncertainty in the historical classification, not proof of a separate resolved cause.
 
 ## What the evidence shows
 
@@ -56,6 +65,6 @@ The explorer covers the two date failures in this export. It is not a universal 
 
 The accepted 2024 decision optimizes speed by grouping subjects. Its prose conflicts with the executable examples, which distinguish causes. The stale badge flags old review dates; a recent review date alone does not make a claim true. Check text against rendered tables, charts, and examples. Preserve decision 0001 as history and replace its operating rule through decision 0002.
 
-Support owns the next review: verify the five exceptions against original booking and invite data, refresh the export, reconcile the two engineering tickets, and check future incoming reports under the revised rule. Keep investigation outcomes and any reclassification traceable by report ID. No production fix or live desk update is claimed here.
+Support owns the next review: verify the five exceptions against original booking and invite data, refresh the export, reconcile the two engineering tickets, and check future incoming reports under the revised rule. Keep investigation outcomes and any reclassification traceable by report ID. The dated engineering update above supplies the subsequent closure; this review does not independently verify production behavior.
 
 <RenderStamp {signature} />

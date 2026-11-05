@@ -20,3 +20,7 @@ R-41241 (alder.physio, form) describes 6 August appearing as 8 June. Reproductio
 The signed KB review reconciles the full export across separate tickets. This ticket covers only the 33 form-hint reports listed in its manifest.
 
 Evidence: [full report-ID manifest](https://github.com/allanloji/mai/blob/main/evidence/hint-report-ids.txt), [computed analysis](https://github.com/allanloji/mai/blob/main/evidence/analysis.json). Run `pnpm evidence` at repository root. Signed review: `support-kb/src/routes/kb/incidents/4471-review/+page.svx`; rendered page: `rendered/kb/incidents/4471-review/index.html`.
+
+## Engineering disposition
+
+The course engineering update reports #4471 closed on 2026-10-05 and this problem marked won't fix because the booking-v3 form was retired. Closed as not planned; no fix to the hint is claimed. This supersedes the earlier administrative closure rationale. Source: [course desk update](https://hq.mega.dev/challenges/what-it-shows).
