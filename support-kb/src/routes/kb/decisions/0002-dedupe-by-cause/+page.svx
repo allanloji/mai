@@ -1,0 +1,33 @@
+---
+layout: runbook
+title: '0002 · Merge verified causes within a product'
+owner: Allan Loji and Codex
+status: accepted
+reviewed: '2026-11-04'
+signature: Allan Loji / Codex / S01E03
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+**Replaces:** [0001 · Duplicates share a subject line](/kb/decisions/0001-dedupe-by-subject). The accepted original remains unchanged as history.
+
+## Context
+
+The [review of #4471](/kb/incidents/4471-review) shows that the same symptom and subject can hide different bugs. One desk handles multiple products; a similar phrase does not establish a shared cause across them.
+
+## Decision
+
+Merge only after verifying the same product, failure mechanism, and relevant affected path. Read the body and check tenant settings, locale, channel, and form version. For the date failures, use the tenant-based classifier and the rendered examples. A different subject does not block merging if cause is established. A matching subject does not justify merging if causes differ or remain unknown.
+
+Keep parser failures and booking-v3 hint failures in separate tickets. Preserve unique report IDs and counts; repeated export rows are not new reports. Hold unknown tenants, unsupported products, or contradictory symptoms for manual investigation. Reconcile changed classifications explicitly, without silently double counting.
+
+<DedupeExplorer />
+
+## Consequences and follow-up
+
+Triage needs more evidence than a subject lookup, but engineering receives distinct work with traceable counts. Support reviews exceptions and fresh intake, checks computed views against prose, and revisits this decision when product paths change. The date classifier supports the supplied date cases only; other products need their own verified diagnosis.
+
+<RenderStamp {signature} />

@@ -1,0 +1,61 @@
+---
+layout: runbook
+title: '#4471 reviewed: two causes hidden by one ticket'
+owner: Allan Loji and Codex
+status: reviewed
+reviewed: '2026-11-04'
+signature: Allan Loji / Codex / S01E03
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import EvidenceSummary from '#lib/kb/EvidenceSummary.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+The desk's “known, one issue” description conceals two different failures. This review supersedes that conclusion in [the original incident](/kb/incidents/4471). It uses the supplied export dated 4 October 2026; it is not a live ticket feed or evidence of a shipped fix.
+
+<Callout kind="warn">
+Keep the parser and form-hint problems in separate engineering tickets. Fixing the shared parser does not correct the form's misleading instruction.
+</Callout>
+
+## What the evidence shows
+
+<CauseTable ticket={4471} />
+
+Classification comes from `causes.ts` with the tenant directory loaded by `locales.ts`. The tenant's locale determines date order through `Intl.DateTimeFormat`; the form version and channel select the failure path. Browser locale and intake tags are clues, not the cause. The table's historical “no ticket of its own” label describes the supplied desk export; our GitHub issues are the proposed split.
+
+<EvidenceSummary />
+
+## Separate work
+
+**Parser:** the shared parser interprets day-first dates as month-first. For a day-first tenant such as Harbour Dental, a date intended as 4 July can become 7 April. Check the app and email paths, and booking-v2 forms. R-41201 illustrates the reversed month and day. The fix must respect the input contract and tenant locale, validate impossible dates, and preserve the intended date through the invite.
+
+**Form hint:** booking-v3 prints `MM/DD/YYYY` while the form reads dates according to the day-first tenant locale. People follow the hint and still get the wrong date. This concerns form submissions for Alder Physio, Copper Studio, and Pale Harbour. R-41241 records 6 August appearing as 8 June. Align the displayed hint, entered value, validation, and form parsing. App and email reports for those same tenants still belong to the parser path.
+
+The [repository issues](https://github.com/allanloji/mai/issues) contain the separate counts, examples, expected behavior, and completion checks. Complete report-ID manifests and reproducible calculations are in `evidence/` and `scripts/analyze.mjs`.
+
+## When it happened
+
+<QueueTimeline ticket={4471} />
+
+Compare receipt time with merge time. April reports were collected into the ticket in July, and reports continued through the export's last day. Calling the ticket “known” or queuing a fix did not stop the failures. This export cannot tell us what happened afterward; refresh it before making a current queue decision.
+
+## What the desk does now
+
+Use the [revised triage rule](/kb/triage/dedupe) and [decision 0002](/kb/decisions/0002-dedupe-by-cause). Match on an established failure mechanism within the same product and affected path. Read the body, look up the tenant, and check the entry channel and form version. A matching subject is insufficient; different subjects can describe the same cause. Unknown tenants and contradictory symptoms require investigation, not automatic merging.
+
+<DedupeExplorer />
+
+The explorer covers the two date failures in this export. It is not a universal classifier for every product the desk supports. In particular, “no cause” is insufficient evidence to merge either report.
+
+## Why the old guidance failed
+
+The accepted 2024 decision optimizes speed by grouping subjects. Its prose conflicts with the executable examples, which distinguish causes. The stale badge flags old review dates; a recent review date alone does not make a claim true. Check text against rendered tables, charts, and examples. Preserve decision 0001 as history and replace its operating rule through decision 0002.
+
+Support owns the next review: verify the five exceptions against original booking and invite data, refresh the export, reconcile the two engineering tickets, and check future incoming reports under the revised rule. Keep investigation outcomes and any reclassification traceable by report ID. No production fix or live desk update is claimed here.
+
+<RenderStamp {signature} />

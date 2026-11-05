@@ -1,0 +1,29 @@
+---
+layout: runbook
+title: 'Triage: verify the cause before merging'
+owner: Allan Loji and Codex
+status: active
+reviewed: '2026-11-04'
+signature: Allan Loji / Codex / S01E03
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Follow [decision 0002](/kb/decisions/0002-dedupe-by-cause), which replaces subject-only matching in decision 0001. See [#4471 reviewed](/kb/incidents/4471-review) for why the change is needed.
+
+1. Read the report body and identify its product, tenant and affected path.
+2. Look up tenant settings and the entry channel. For date reports, compare tenant date order, booking form version and the failure mechanism using the classifier below. Do not infer cause from browser locale or intake tag alone.
+3. Merge only into a ticket with the same verified cause and product scope. Different subjects may describe the same failure; matching subjects can hide different failures.
+4. Keep parser and booking-v3 hint reports apart. Count each report ID once and retain its evidence.
+5. If the tenant, cause or product is unknown, or symptoms conflict with classification, investigate before merging. Keep the original record and document later reclassification.
+
+## Verify with examples
+
+<DedupeExplorer />
+
+These examples cover the exported date failures only. Apply verified product-specific diagnosis to other products; “no cause” is not a duplicate verdict. Support reviews fresh reports and unresolved exceptions while engineering works on existing tickets.
+
+<RenderStamp {signature} />
